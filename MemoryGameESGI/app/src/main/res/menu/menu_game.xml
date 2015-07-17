@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.ridley.memorygameesgi.GameActivity">
+    <item
+        android:id="@+id/actionScores"
+        android:title="@string/Scores"
+        />
+</menu>

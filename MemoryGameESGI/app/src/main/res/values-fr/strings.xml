@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MemoryGame</string>
+    <string name="Home">Accueil</string>
+    <string name="WelcomeUser">Bonjour %1$s !!! Nous allons commencé le jeu</string>
+    <string name="NewGame">Nouveau</string>
+    <string name="ResumeGame">Reprendre</string>
+    <string name="UpdateNickname">Changer de pseudo</string>
+    <string name="LastGames">Dernieres parties</string>
+    <string name="action_settings">Parametres</string>
+    <string name="title_activity_manage_nickname">ManageNicknameActivity</string>
+    <string name="Nickname">Mon pseudo</string>
+    <string name="Submit">Valider</string>
+    <string name="title_activity_welcome">MemoryGame</string>
+    <string name="title_activity_game">GameActivity</string>
+    <string name="lblTime">Temps :</string>
+    <string name="lblNbBeats">Nombre de coups:</string>
+    <string name="btnSolve">Résoudre le jeu</string>
+    <string name="Scores">Scores</string>
+    <string name="BackHome">Accueil</string>
+    <string name="congrats">Félicitations !!!!!</string>
+</resources>

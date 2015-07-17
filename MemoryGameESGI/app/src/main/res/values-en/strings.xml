@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MemoryGame</string>
+    <string name="Home">Home</string>
+    <string name="WelcomeUser">WELCOME %1$s !!! WE GOING TO START PLAYING</string>
+    <string name="NewGame">New Game</string>
+    <string name="ResumeGame">Resume Game</string>
+    <string name="UpdateNickname">Manage my Nickname</string>
+    <string name="LastGames">Last Games</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_manage_nickname">ManageNicknameActivity</string>
+    <string name="Nickname">My nickname</string>
+    <string name="Submit">Submit</string>
+    <string name="title_activity_welcome">MemoryGame</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_game">GameActivity</string>
+    <string name="Search">Search</string>
+
+</resources>
