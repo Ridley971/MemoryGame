@@ -5,14 +5,16 @@ package com.example.ridley.memorygameesgi;
  */
 public class ScoreGames
 {
-    private long _id=0;
+    private int _id=0;
     private String _username;
-    private Integer _nbbeats;
+    private int _nbbeats;
     private String _time;
 
-    public ScoreGames( String user, Integer beats, String time)
+    public ScoreGames(){}
+
+    public ScoreGames(int id, String user, int beats, String time)
     {
-        _id++;
+        _id=0;
         _username=user;
         _nbbeats=beats;
         _time=time;
