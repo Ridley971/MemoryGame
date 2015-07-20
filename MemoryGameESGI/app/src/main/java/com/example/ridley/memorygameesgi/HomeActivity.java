@@ -41,7 +41,7 @@ public class HomeActivity extends ActionBarActivity {
     public void btnResume(View v){
     }
 
-    public void btnLastGames(View v)
+    public void btnHistory(View v)
     {
         Intent intent= new Intent(HomeActivity.this, HistoryActivity.class);
         startActivity(intent);

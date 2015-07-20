@@ -7,7 +7,7 @@
     <string name="NewGame">Nouveau</string>
     <string name="ResumeGame">Reprendre</string>
     <string name="UpdateNickname">Changer de pseudo</string>
-    <string name="LastGames">Dernieres parties</string>
+    <string name="History">Historique</string>
     <string name="action_settings">Parametres</string>
     <string name="title_activity_manage_nickname">ManageNicknameActivity</string>
     <string name="Nickname">Mon pseudo</string>
@@ -20,4 +20,7 @@
     <string name="Scores">Scores</string>
     <string name="BackHome">Accueil</string>
     <string name="congrats">Félicitations !!!!!</string>
+
+    <string name="searchName">Recherche</string>
+    <string name="EnterUserSearch">Pseudo recherché...</string>
 </resources>

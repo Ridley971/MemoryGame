@@ -30,13 +30,6 @@
         android:text="@string/UpdateNickname"
         android:onClick="btnManageNickname"/>
     <Button
-        android:id="@+id/btnResume"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/ResumeGame"
-        android:enabled="false"
-        android:onClick=""/>
-    <Button
         android:id="@+id/btnNewGame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,7 +39,7 @@
         android:id="@+id/btnLastGames"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/LastGames"
-        android:onClick="btnLastGames" />
+        android:text="@string/History"
+        android:onClick="btnHistory" />
 
 </LinearLayout>

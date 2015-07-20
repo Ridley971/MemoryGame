@@ -36,6 +36,7 @@ public class GameActivity extends FragmentActivity {
     int total=0;
     Boolean firstClick=true;
     String nikname;
+    ScoreDbHandler mdb=new ScoreDbHandler(this);
 
 
    private void doSomeHardWork()
@@ -146,13 +147,18 @@ public class GameActivity extends FragmentActivity {
                         int hours=(int)(timeElapased/3600000);
                         int mins=(int)(timeElapased-hours*3600000)/60000;
                         int secs=(int)(timeElapased-hours*3600000-mins*60000)/1000;
+
+
+                        ScoreGames newScore = new ScoreGames(nikname,nbBeats,hours+":"+mins+":"+secs);
+
+                        mdb.addScore(newScore);
+
                         Bundle bun=new Bundle();
 
                         dfragment = dfragment.newInstance(hours,mins,secs,nbBeats);
 
                         dfragment.show(fm,"Hello");
 
-                        ScoreGames newScore = new ScoreGames(nikname,nbBeats,hours+":"+mins+":"+secs);
 
 
 

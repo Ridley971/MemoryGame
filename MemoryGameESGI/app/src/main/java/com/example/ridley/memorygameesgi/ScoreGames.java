@@ -14,7 +14,15 @@ public class ScoreGames
 
     public ScoreGames(int id, String user, int beats, String time)
     {
-        _id=0;
+        _id=id;
+        _username=user;
+        _nbbeats=beats;
+        _time=time;
+    }
+
+    public ScoreGames(String user, int beats, String time)
+    {
+        _id++;
         _username=user;
         _nbbeats=beats;
         _time=time;

@@ -16,7 +16,7 @@ public abstract class DAOBase
 
     public DAOBase(Context context)
     {
-        mHandler=new ScoreDbHandler(context,FileDbName,null, DbVersion);
+        mHandler=new ScoreDbHandler(context);
     }
 
     public SQLiteDatabase open()

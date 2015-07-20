@@ -7,11 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ScoreDbHandler extends SQLiteOpenHelper 
 {
-    public  static  final String DBSCORE_NAME="dbScore";
+    public  static  final String DBSCORE_NAME="dbScore.db";
     public static final int DBSCORE_VERSION=1;
 
     public  static final String SCORE_TABLE_NAME="Score";
@@ -23,10 +22,10 @@ public class ScoreDbHandler extends SQLiteOpenHelper
 
     public  static final String SCORE_TABLE_CREATE=
             "CREATE TABLE "+SCORE_TABLE_NAME+" ("+
-            SCORE_KEY+"INTEGER PRIMARY KEY AUTOINCREMENT,"+
-            SCORE_USERNAME+"TEXT,"+
-            SCORE_NBBEATS+"INTEGER,"+
-            SCORE_TIME+"TEXT);";
+            SCORE_KEY+" INTEGER PRIMARY KEY, "+
+            SCORE_USERNAME+" TEXT, "+
+            SCORE_NBBEATS+" INTEGER, "+
+            SCORE_TIME+" TEXT )";
 
 
     public ScoreDbHandler(Context context) {
@@ -53,7 +52,7 @@ public class ScoreDbHandler extends SQLiteOpenHelper
         values.put(SCORE_NBBEATS,newScore.get_nbbeats());
         values.put(SCORE_TIME,newScore.get_time());
 
-        mdb.insert(SCORE_TABLE_NAME,null,values);
+        long rowInsert=mdb.insert(SCORE_TABLE_NAME,null,values);
 
         mdb.close();
     }
@@ -75,8 +74,8 @@ public class ScoreDbHandler extends SQLiteOpenHelper
 
     }
 
-    public List<ScoreGames> getAllScores(){
-        List<ScoreGames> listScores=new ArrayList<ScoreGames>();
+    public ArrayList<ScoreGames> getAllScores(){
+        ArrayList<ScoreGames> listScores=new ArrayList<ScoreGames>();
 
         String selectQuery="SELECT * FROM "+SCORE_TABLE_NAME;
 
