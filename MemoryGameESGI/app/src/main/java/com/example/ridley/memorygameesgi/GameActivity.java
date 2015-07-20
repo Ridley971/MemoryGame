@@ -148,8 +148,10 @@ public class GameActivity extends FragmentActivity {
                         int mins=(int)(timeElapased-hours*3600000)/60000;
                         int secs=(int)(timeElapased-hours*3600000-mins*60000)/1000;
 
+                        String time=hours+":"+mins+":"+secs;
 
-                        ScoreGames newScore = new ScoreGames(nikname,nbBeats,hours+":"+mins+":"+secs);
+
+                        ScoreGames newScore = new ScoreGames(nikname,nbBeats,time);
 
                         mdb.addScore(newScore);
 

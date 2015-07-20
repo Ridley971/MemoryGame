@@ -1,31 +1,30 @@
 package com.example.ridley.memorygameesgi;
 
-import android.app.Activity;
+import android.app.SearchManager;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.Window;
 import android.widget.ListView;
-import android.widget.SearchView;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 
-public class HistoryActivity extends Activity implements SearchView.OnQueryTextListener {
+public class HistoryActivity extends ActionBarActivity {
 
     ListView listScores;
-    SearchView mSearchView;
-    TextView mStatusView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.activity_history);
 
-        mStatusView=(TextView)findViewById(R.id.txtSearchView);
+
         listScores=(ListView) findViewById(R.id.listScores);
 
         ScoreDbHandler mdb= new ScoreDbHandler(this);
@@ -35,11 +34,42 @@ public class HistoryActivity extends Activity implements SearchView.OnQueryTextL
 
        listScores.setAdapter( new AdapterListScore(this,0,lScore));
 
+        handleIntent(getIntent());
 
 
 
     }
 
+    private void handleIntent(Intent intent) {
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())){
+            String query=intent.getStringExtra(SearchManager.QUERY);
+            doMySearch(query);
+
+        }
+
+
+    }
+
+    private void doMySearch(String query) {
+        ScoreDbHandler mdb= new ScoreDbHandler(this);
+        ArrayList<ScoreGames> lScore=new ArrayList<ScoreGames>();
+
+        lScore=mdb.getScoreFromUser(query);
+
+            Toast.makeText(getApplicationContext(),
+                    lScore.size()+getString(R.string.NumberRowsFound)
+                    ,Toast.LENGTH_LONG).show();
+
+
+        listScores.setAdapter( new AdapterListScore(this,0,lScore));
+
+    }
+
+    @Override
+    protected  void onNewIntent(Intent intent){
+        setIntent(intent);
+        handleIntent(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -48,38 +78,24 @@ public class HistoryActivity extends Activity implements SearchView.OnQueryTextL
         /*getMenuInflater().inflate(R.menu.menu_history, menu);
         return true;*/
 
-       super.onCreateOptionsMenu(menu);
+        MenuInflater inflater =getMenuInflater();
 
-        MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.menu_history,menu);
-        MenuItem searchItem=menu.findItem(R.id.action_searchUserName);
-        mSearchView=(SearchView)searchItem.getActionView();
-        setupSearchView(searchItem);
+
+        SearchManager searchManager=(SearchManager)getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView=(SearchView) menu.findItem(R.id.menu_action_searchUserName).getActionView();
+
+
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setIconifiedByDefault(false);
+
+        searchView.setQueryHint(getResources().getString(R.string.EnterUserSearch));
+
         return true;
+
+
     }
 
-    private void setupSearchView(MenuItem searchItem){
-        /*if (isAlwaysExpanded()){
-            mSearchView.setIconifiedByDefault(false);
-        }else{
-            searchItem.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_IF_ROOM|
-            MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
-        }
-
-
-        SearchManager searchManager=(SearchManager) getSystemService(Context.SEARCH_SERVICE);
-
-        if (searchManager!=null){
-            List searchables=searchManager.getSearchableInfo(getComponentName());
-
-            for (SearchableInfo inf:searchables){
-                if(inf.getSuggestAuthority()!=null
-                    && inf.getSuggestAuthority().startsWith("applications")){
-
-                }
-            }
-        }*/
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -90,7 +106,7 @@ public class HistoryActivity extends Activity implements SearchView.OnQueryTextL
 
         switch (id){
 
-            case R.id.action_searchUserName:
+            case R.id.menu_action_searchUserName:
                 listScores=(ListView) findViewById(R.id.listScores);
 
                 ScoreDbHandler mdb= new ScoreDbHandler(this);
@@ -105,13 +121,4 @@ public class HistoryActivity extends Activity implements SearchView.OnQueryTextL
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        return false;
-    }
 }

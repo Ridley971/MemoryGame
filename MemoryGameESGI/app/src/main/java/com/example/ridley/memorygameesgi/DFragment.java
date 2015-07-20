@@ -33,10 +33,17 @@ public class DFragment extends DialogFragment {
         int min=args.getInt("min");
         int sec=args.getInt("sec");
         int nbBeats=args.getInt("nbBeats");
+
+        String time=hours+":"+min+":"+sec;
+
+        String gameEndFormat= getResources().getString(R.string.GameWin);
+
+        String gameEnd=String.format(gameEndFormat,nbBeats,time);
+
         return new AlertDialog.Builder(getActivity())
 
-                .setTitle("Congrats !!!!")
-                .setMessage("GAME ENDED WITH " + nbBeats + " beats. Time=>"+hours+":"+min+":"+sec)
+                .setTitle(getResources().getString(R.string.Congratulations))
+                .setMessage(gameEnd)
                 .setPositiveButton("OK",new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog,int which){
                         Intent intent =new Intent(getActivity(), HomeActivity.class);

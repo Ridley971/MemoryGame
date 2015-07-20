@@ -22,5 +22,9 @@
     <string name="congrats">Félicitations !!!!!</string>
 
     <string name="searchName">Recherche</string>
-    <string name="EnterUserSearch">Pseudo recherché...</string>
+    <string name="EnterUserSearch">Pseudo recherché</string>
+    <string name="NumberRowsFound"> scores trouvés</string>
+
+    <string name="GameWin">Jeu fini avec %1$d  coups. en %2$s  </string>
+    <string name="Congratulations">Félicitations !!!!</string>
 </resources>

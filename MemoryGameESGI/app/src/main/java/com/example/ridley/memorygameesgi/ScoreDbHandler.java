@@ -74,6 +74,35 @@ public class ScoreDbHandler extends SQLiteOpenHelper
 
     }
 
+    public ArrayList<ScoreGames> getScoreFromUser(String username){
+        ArrayList<ScoreGames> listScores=new ArrayList<ScoreGames>();
+
+       // String selectQuery="SELECT * FROM "+SCORE_TABLE_NAME+" WHERE "+SCORE_USERNAME+" LIKE "+username;
+
+        username="%"+username+"%";
+        SQLiteDatabase mdb=this.getReadableDatabase();
+
+        Cursor cursor=mdb.query(SCORE_TABLE_NAME,new String[]{SCORE_KEY,
+                        SCORE_USERNAME,SCORE_NBBEATS,SCORE_TIME},SCORE_USERNAME+" LIKE ?",
+                new String[]{username},null,null,null);
+
+        if (cursor!=null&& cursor.moveToFirst()){
+            do {
+                ScoreGames aScore= new ScoreGames();
+
+                aScore.set_id(Integer.parseInt(cursor.getString(0)));
+                aScore.set_username(cursor.getString(1));
+                aScore.set_nbbeats(Integer.parseInt(cursor.getString(2)));
+                aScore.set_time(cursor.getString(3));
+
+                listScores.add(aScore);
+            }while (cursor.moveToNext());
+        }
+
+        return  listScores;
+
+
+    }
     public ArrayList<ScoreGames> getAllScores(){
         ArrayList<ScoreGames> listScores=new ArrayList<ScoreGames>();
 

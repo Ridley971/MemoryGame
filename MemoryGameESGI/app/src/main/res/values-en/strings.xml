@@ -16,6 +16,9 @@
     <string name="title_activity_game">GameActivity</string>
     <string name="Search">Search</string>
     <string name="searchName">Search</string>
-    <string name="EnterUserSearch">Nickname searched...</string>
+    <string name="EnterUserSearch">Nickname searched</string>
+    <string name="NumberRowsFound">scores found</string>
+    <string name="GameWin" />
+    <string name="Congratulations">Congratulations !!!!</string>
 
 </resources>

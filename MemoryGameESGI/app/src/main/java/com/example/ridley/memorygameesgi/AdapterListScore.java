@@ -15,17 +15,18 @@ import java.util.ArrayList;
  * Created by Ridley on 19/07/15.
  */
 public class AdapterListScore extends ArrayAdapter<ScoreGames> {
-    Activity activity;
+    Activity _activity;
     ArrayList<ScoreGames>listScores;
     private static LayoutInflater inflater=null;
 
     public AdapterListScore(Activity activity,int textViewResourceId ,ArrayList<ScoreGames> lscores) {
         super(activity, textViewResourceId, lscores);
         try{
-            this.activity=activity;
+            this._activity=activity;
             this.listScores=lscores;
 
             inflater=(LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
         }catch (Exception e){
 
         }

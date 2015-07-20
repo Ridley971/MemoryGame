@@ -24,7 +24,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="congrats">Congratulations !!!!!!</string>
     <string name="btnOk">OK</string>
-    <string name="searchName">Search</string>
-    <string name="EnterUserSearch">Nickname searched...</string>
+    <string name="searchName">Search pseudo</string>
+    <string name="EnterUserSearch">Nickname searched</string>
+    <string name="title_activity_search_results">SearchResultsActivity</string>
+    <string name="NumberRowsFound"> scores found</string>
+    <string name="GameWin">GAME ENDED WITH  %1$d  beats in %2$s  </string>
+    <string name="Congratulations">Congratulations !!!!</string>
 
 </resources>
