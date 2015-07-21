@@ -30,5 +30,6 @@
     <string name="NumberRowsFound">scores found</string>
     <string name="GameWin">GAME ENDED WITH  %1$d  beats in %2$s  </string>
     <string name="Congratulations">Congratulations !!!!</string>
+    <string name="scoreDeleted">Score deleted !</string>
 
 </resources>

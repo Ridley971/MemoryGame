@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -127,7 +128,7 @@ public class HistoryActivity extends ActionBarActivity {
 
     @Override
     public void onCreateContextMenu(ContextMenu menu,View v,ContextMenu.ContextMenuInfo menuInfo){
-        /*if (v.getId()==R.id.listScores) {
+        if (v.getId()==R.id.listScores) {
             AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
 
            String[] menuItems = getResources().getStringArray(R.array.menuItemList);
@@ -135,20 +136,34 @@ public class HistoryActivity extends ActionBarActivity {
             for (int i = 0; i<menuItems.length; i++) {
                 menu.add(Menu.NONE, i, i, menuItems[i]);
             }
-        }*/
+        }
     }
 
     @Override
-   public boolean onContextItemSelected(MenuItem item) {
-
-        /*AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
         int menuItemIndex = item.getItemId();
-        String[] menuItems = getResources().getStringArray(R.array.menu);
-        String menuItemName = menuItems[menuItemIndex];
-        String listItemName = Countries[info.position];
 
-        TextView text = (TextView)findViewById(R.id.footer);
-        text.setText(String.format("Selected %s for item %s", menuItemName, listItemName));*/
+        if (  menuItemIndex==0) {
+            ScoreDbHandler mdb=new ScoreDbHandler(this);
+
+            ArrayList<ScoreGames> lScore=new ArrayList<ScoreGames>();
+
+            lScore=mdb.getAllScores();
+
+            ScoreGames scoreToDelete =lScore.get(info.position);
+
+
+            Toast.makeText(getApplicationContext(),getResources().getString(R.string.scoreDeleted),
+                    Toast.LENGTH_LONG).show();
+
+            mdb.deleteScore(scoreToDelete);
+
+            finish();
+            startActivity(getIntent());
+
+        }
+
         return true;
     }
 

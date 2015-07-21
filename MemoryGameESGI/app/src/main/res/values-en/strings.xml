@@ -20,5 +20,6 @@
     <string name="NumberRowsFound">scores found</string>
     <string name="GameWin" />
     <string name="Congratulations">Congratulations !!!!</string>
+    <string name="scoreDeleted">Score deleted !</string>
 
 </resources>

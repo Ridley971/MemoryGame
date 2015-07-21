@@ -2,6 +2,7 @@ package com.example.ridley.memorygameesgi;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -21,12 +22,14 @@ public class HomeActivity extends ActionBarActivity {
 
         textWelcome=(TextView)findViewById(R.id.txtViewWelcome);
 
+
         SharedPreferences pref =getSharedPreferences(PREFS_NAME,MODE_APPEND);
         String nickname =pref.getString("nickname",null);
 
         String strNicknameFormat= getResources().getString(R.string.WelcomeUser);
         String strNicknamemsg=String.format(strNicknameFormat,nickname);
 
+        textWelcome.setTextColor(Color.WHITE);
          textWelcome.setText(strNicknamemsg);
 
     }

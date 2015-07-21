@@ -27,4 +27,5 @@
 
     <string name="GameWin">Jeu fini avec %1$d  coups. en %2$s  </string>
     <string name="Congratulations">Félicitations !!!!</string>
+    <string name="scoreDeleted">Score supprimé !</string>
 </resources>

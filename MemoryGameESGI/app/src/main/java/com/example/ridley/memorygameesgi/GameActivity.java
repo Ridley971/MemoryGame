@@ -34,6 +34,7 @@ public class GameActivity extends FragmentActivity {
     int lastposition=0;
     int nbBeats=0;
     int total=0;
+    int callSolve=0;
     Boolean firstClick=true;
     String nikname;
     ScoreDbHandler mdb=new ScoreDbHandler(this);
@@ -120,7 +121,7 @@ public class GameActivity extends FragmentActivity {
                         @Override
                         public void run() {
                             try {
-                                Thread.sleep(1000);
+                                Thread.sleep(500);
 
                                 doSomeHardWork();
                             } catch (InterruptedException e) {
@@ -199,11 +200,22 @@ public class GameActivity extends FragmentActivity {
     {
         int nbView= gridGame.getChildCount();
 
-        for(int i=0; i<nbView;i++)
-        {
-            ImageView currentCard= (ImageView)gridGame.getChildAt(i);
+        if (callSolve==0){
+            callSolve++;
+            for(int i=0; i<nbView;i++)
+            {
+                ImageView currentCard= (ImageView)gridGame.getChildAt(i);
 
-            currentCard.setColorFilter(null);
+                currentCard.setColorFilter(null);
+            }
+        }else {
+            for(int i=0; i<nbView;i++)
+            {
+                ImageView currentCard= (ImageView)gridGame.getChildAt(i);
+
+                currentCard.setColorFilter(Color.GREEN);
+            }
         }
     }
+
 }
