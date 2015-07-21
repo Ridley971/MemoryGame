@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.SearchView;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,6 +28,8 @@ public class HistoryActivity extends ActionBarActivity {
 
 
         listScores=(ListView) findViewById(R.id.listScores);
+        registerForContextMenu(listScores);
+
 
         ScoreDbHandler mdb= new ScoreDbHandler(this);
         ArrayList<ScoreGames> lScore=new ArrayList<ScoreGames>();
@@ -61,7 +65,7 @@ public class HistoryActivity extends ActionBarActivity {
                     ,Toast.LENGTH_LONG).show();
 
 
-        listScores.setAdapter( new AdapterListScore(this,0,lScore));
+        listScores.setAdapter(new AdapterListScore(this, 0, lScore));
 
     }
 
@@ -119,6 +123,33 @@ public class HistoryActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu,View v,ContextMenu.ContextMenuInfo menuInfo){
+        /*if (v.getId()==R.id.listScores) {
+            AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
+
+           String[] menuItems = getResources().getStringArray(R.array.menuItemList);
+
+            for (int i = 0; i<menuItems.length; i++) {
+                menu.add(Menu.NONE, i, i, menuItems[i]);
+            }
+        }*/
+    }
+
+    @Override
+   public boolean onContextItemSelected(MenuItem item) {
+
+        /*AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
+        int menuItemIndex = item.getItemId();
+        String[] menuItems = getResources().getStringArray(R.array.menu);
+        String menuItemName = menuItems[menuItemIndex];
+        String listItemName = Countries[info.position];
+
+        TextView text = (TextView)findViewById(R.id.footer);
+        text.setText(String.format("Selected %s for item %s", menuItemName, listItemName));*/
+        return true;
     }
 
 }

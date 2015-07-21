@@ -2,6 +2,7 @@ package com.example.ridley.memorygameesgi;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -9,7 +10,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-
 
 
 public class ManageNicknameActivity extends ActionBarActivity {
@@ -26,6 +26,7 @@ public class ManageNicknameActivity extends ActionBarActivity {
 
         editNick=(EditText) findViewById(R.id.editNickname);
 
+        editNick.setTextColor(Color.WHITE);
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         String login=settings.getString("nickname", null);
 
@@ -53,12 +54,23 @@ public class ManageNicknameActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id){
+
+            case R.id.backHome:
+                this.finish();
+                return  true;
+
+            case R.id.actionScores:
+                Intent intent= new Intent(ManageNicknameActivity.this, HistoryActivity.class);
+                startActivity(intent);
+                return super.onOptionsItemSelected(item);
+            default:
+                return super.onOptionsItemSelected(item);
+
+
         }
 
-        return super.onOptionsItemSelected(item);
+
 
 
     }

@@ -27,7 +27,7 @@
     <string name="searchName">Search pseudo</string>
     <string name="EnterUserSearch">Nickname searched</string>
     <string name="title_activity_search_results">SearchResultsActivity</string>
-    <string name="NumberRowsFound"> scores found</string>
+    <string name="NumberRowsFound">scores found</string>
     <string name="GameWin">GAME ENDED WITH  %1$d  beats in %2$s  </string>
     <string name="Congratulations">Congratulations !!!!</string>
 
